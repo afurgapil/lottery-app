@@ -1,0 +1,36 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  #root {
+    .dark-theme {
+      background: linear-gradient(135deg, #332f2e 0%, #332e33 100%);
+      color: whitesmoke;
+    }
+    .light-theme {
+      background-image: linear-gradient(
+        to top,
+        #ffffff,
+        #f8f7f8,
+        #f2eff1,
+        #ece6e9,
+        #e7dee0,
+        #e6dcde,
+        #e6dbdb,
+        #e5d9d9,
+        #e9dede,
+        #ede3e3,
+        #f2e8e8,
+        #f6eded
+      );
+      color: black;
+      header,
+      footer {
+        background-color: #f09d81;
+        a {
+          color: #332f2e;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.admin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  }
+  .btn-container {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    margin: 1.5rem 1rem;
+
+    input[type="text"] {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  }
+  .pick-winner {
+    .pick-winner-btn {
+      background-color: #3498db;
+      color: #fff;
+      padding: 1rem 4rem;
+      text-align: center;
+    }
+  }
+
+  .remove-player {
+    .remove-player-btn {
+      background-color: #e74c3c;
+      color: #fff;
+      padding: 1rem 4rem;
+      text-align: center;
+    }
+  }
+
+  .remove-players {
+    .remove-players-btn {
+      background-color: #2ecc71;
+      color: #fff;
+      padding: 1rem 4rem;
+      text-align: center;
+    }
+  }
+
+  .change-lottery-name {
+    .change-lottery-btn {
+      background-color: #f39c12;
+      color: #fff;
+      padding: 1rem 4rem;
+      text-align: center;
+    }
+  }
+  .deposit {
+    .deposit-btn {
+      background-color: #f8008d;
+      color: #fff;
+      padding: 1rem 4rem;
+      text-align: center;
+    }
+  }
+}
