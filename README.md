@@ -2,6 +2,8 @@
 
 This project allows you to conduct a lottery using a smart contract on EVM-based blockchains. The Manager contract can be managed dynamically through the dashboard. Users can participate in the lottery by paying a fee, and they will be added to the participant list. When the Manager executes the lottery function, a winner is randomly selected, and the contract's balance is transferred to them.
 
+![Preview](https://github.com/afurgapil/lottery-app/assets/99171546/56a4a013-187f-48c6-a559-4e5c8059c3f9)
+
 ## Getting Started
 
 To use the project, you need to deploy the contract from your own account; otherwise, you won't have access to the manager functions.
