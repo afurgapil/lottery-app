@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
+pragma solidity ^0.8.19;
 
 contract Lottery {
     address public manager;
@@ -14,21 +14,19 @@ contract Lottery {
 
     mapping(address => bool) public hasEntered;
 
-   function deposit() public payable {
-    require(msg.value > 0, "Deposit amount must be greater than 0.");
-
-}
-
-
+    function deposit() public payable {
+        require(msg.value > 0, "Deposit amount must be greater than 0.");
+    }
 
     function enter() public payable {
         require(!hasEntered[msg.sender], "You have already entered the lottery.");
+        require(msg.value > 0, "Entry fee must be greater than 0.");
         players.push(msg.sender);
         hasEntered[msg.sender] = true;
     }
 
     function random() private view returns (uint) {
-        return uint(keccak256(abi.encodePacked(block.basefee, block.timestamp, players.length)));
+        return uint(keccak256(abi.encodePacked(block.timestamp, block.difficulty, players.length)));
     }
 
     function pickWinner() public restricted {
@@ -39,11 +37,12 @@ contract Lottery {
         uint contractBalance = address(this).balance;
 
         payable(winner).transfer(contractBalance);
-         uint length = players.length;
-        for (uint i = 0; i < length; i++) {
+        
+        // Reset players and hasEntered mappings
+        for (uint i = 0; i < players.length; i++) {
             hasEntered[players[i]] = false;
         }
-        players = new address[](0);
+        delete players;
     }
     
     function removePlayer(address player) public restricted {
@@ -60,11 +59,10 @@ contract Lottery {
     }
     
     function clearPlayers() public restricted {
-        uint length = players.length;
-        for (uint i = 0; i < length; i++) {
+        for (uint i = 0; i < players.length; i++) {
             hasEntered[players[i]] = false;
         }
-        players = new address[](0);
+        delete players;
     }
 
     modifier restricted() {
