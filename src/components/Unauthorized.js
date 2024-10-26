@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaUserSecret } from "react-icons/fa";
-import { BiBorderRadius } from "react-icons/bi";
 function Unauthorized() {
   return (
     <div
